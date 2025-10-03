@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>App para Dejar de Fumar - Prueba</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Deja de Fumar</h1>
+      <p class="subtitle">Controla tu progreso, ahorros y emociones</p>
+    </div>
+    <nav>
+      <a href="#app">App</a>
+      <a href="#diario">Diario</a>
+      <a href="#consejos">Consejos</a>
+    </nav>
+  </header>
+
+  <main id="app" class="container">
+    <section class="card config">
+      <h2>Configuración</h2>
+      <div class="row">
+        <label>Fecha de inicio (dejaste / vas a dejar):</label>
+        <input type="date" id="quitDate">
+      </div>
+      <div class="row">
+        <label>Cigarrillos diarios (antes):</label>
+        <input type="number" id="dailyCigs" min="0" value="10">
+      </div>
+      <div class="row">
+        <label>Precio por paquete (€):</label>
+        <input type="number" id="pricePack" min="0" step="0.01" value="5.00">
+      </div>
+      <div class="row small">
+        <label>Cigarrillos por paquete:</label>
+        <input type="number" id="cigsPerPack" min="1" value="20">
+      </div>
+      <div class="actions">
+        <button id="saveConfig">Guardar</button>
+        <button id="resetConfig" class="secondary">Reiniciar</button>
+      </div>
+    </section>
+
+    <section class="card stats">
+      <h2>Progreso</h2>
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-value" id="daysFree">0</div>
+          <div class="stat-label">Días sin fumar</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="cigsAvoided">0</div>
+          <div class="stat-label">Cigarrillos evitados</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="moneySaved">€0.00</div>
+          <div class="stat-label">Dinero ahorrado</div>
+        </div>
+      </div>
+
+      <div class="progress-row">
+        <label>Progreso hacia 30 días</label>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+
+      <div class="progress-actions">
+        <button id="logSlip" class="secondary">He tenido un desliz (registrar)</button>
+        <div class="muted" id="slipCount">Deslices: 0</div>
+      </div>
+    </section>
+
+    <section class="card journal" id="diario">
+      <h2>Diario</h2>
+      <p class="muted">Anota sensaciones, tentaciones y logros. Se guarda en tu navegador.</p>
+      <textarea id="entryText" rows="4" placeholder="Cómo te sientes hoy..."></textarea>
+      <div class="actions">
+        <button id="addEntry">Añadir entrada</button>
+        <button id="clearEntries" class="secondary">Borrar diario</button>
+      </div>
+      <ul id="entriesList" class="entries"></ul>
+    </section>
+
+    <section class="card tips" id="consejos">
+      <h2>Consejos rápidos</h2>
+      <ul>
+        <li>Evita desencadenantes: café o alcohol al inicio.</li>
+        <li>Hidrátate, mastica chicle o usa sustitutos sin nicotina.</li>
+        <li>Pide apoyo: pareja, amigos o grupos locales.</li>
+        <li>Recompénsate en hitos (1, 7, 30 días).</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>App de prueba • Los datos se guardan en tu navegador (localStorage)</p>
+    <p>Repositorio: <a href="https://github.com/daniagulloo/prueba" target="_blank">daniagulloo/prueba</a></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
